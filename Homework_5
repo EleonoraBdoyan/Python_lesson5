@@ -60,6 +60,28 @@ while not player_x() or not player_o():
         break
 
 
+# Իրականացնել պարզ վիկտորինա-խաղ, որը կպարունակի հարցերի և պատասխանների ցուցակներ(lists)։
+# Խաղը սկսելուց պատահական սկզբունքով հարց պետք է տրվի խաղացողին և պատասխանից կախված խաղի վերջում
+# հայտնվի ճիշտ պատասխանների քանակը։ Հարցերը չպետք է կրկնվեն։
+
+import random
+
+questions = ["question_1", "question_2", "question_3"]
+answers = ["answer_1", "answer_2", "answer_3"]
+match = dict(zip(questions, answers))
+right_answers = 0
+while len(questions) > 0:
+    question = random.choice(questions)
+    questions.remove(question)
+    answer = input("{} --- ".format(question))
+    if answer == match[question]:
+        print("You are right.")
+        right_answers += 1
+    else:
+        print("You are wrong.")
+print("You have {} right answers.".format(right_answers))
+
+
 
 
 
