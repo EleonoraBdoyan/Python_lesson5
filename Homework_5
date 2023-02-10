@@ -1,0 +1,67 @@
+# Tic-tac-toe տախտակը կարող է ներկայացվել որպես 3×3 երկչափ ցուցակ, որտեղ զրոները
+# նշանակում են դատարկ բջիջներ, մեկը՝ X,
+# իսկ երկուսը նշանակում են O: Իրականացնել այդ խաղը օգտագործելով Python List։
+
+
+table = [[" ", " ", " "],
+         [" ", " ", " "],
+         [" ", " ", " "]]
+
+
+def player_x():
+    if table[0][0] == table[0][1] == table[0][2] == "X" or \
+       table[1][0] == table[1][1] == table[1][2] == "X" or \
+       table[2][0] == table[2][1] == table[2][2] == "X" or \
+       table[0][0] == table[1][0] == table[2][0] == "X" or \
+       table[0][1] == table[1][1] == table[2][1] == "X" or \
+       table[0][2] == table[1][2] == table[2][2] == "X" or \
+       table[0][0] == table[1][1] == table[2][2] == "X" or \
+       table[0][2] == table[1][1] == table[0][0] == "X":
+        return True
+
+
+def player_o():
+    if table[0][0] == table[0][1] == table[0][2] == "O" or \
+       table[1][0] == table[1][1] == table[1][2] == "O" or \
+       table[2][0] == table[2][1] == table[2][2] == "O" or \
+       table[0][0] == table[1][0] == table[2][0] == "0" or \
+       table[0][1] == table[1][1] == table[2][1] == "0" or \
+       table[0][2] == table[1][2] == table[2][2] == "0" or \
+       table[0][0] == table[1][1] == table[2][2] == "0" or \
+       table[0][2] == table[1][1] == table[0][0] == "0":
+        return True
+
+
+while not player_x() or not player_o():
+    player1 = input("It's player X's turn. Enter the index for row and column separated by ',' '.' or space.")
+    if table[int(player1[0])][int(player1[2])] == " ":
+        table[int(player1[0])][int(player1[2])] = "X"
+    else:
+        print("The place is not free, try again.")
+        continue
+    for i in table:
+        print(i)
+    if " " not in table[0] and " " not in table[1] and " " not in table[2] and not player_x():
+        print("It's a tie.")
+    if player_x():
+        print("The winner is player 'X'.")
+        break
+
+    player2 = input("It's player O's turn. Enter the index for row and column separated by ',' '.' or space.")
+    if table[int(player2[0])][int(player2[2])] == " ":
+        table[int(player2[0])][int(player2[2])] = "O"
+    else:
+        print("The place is not free, try again.")
+        continue
+    for i in table:
+        print(i)
+    if player_o():
+        print("The winner is player 'O'")
+        break
+
+
+
+
+
+
+
