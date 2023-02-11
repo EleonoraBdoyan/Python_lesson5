@@ -43,6 +43,7 @@ while not player_x() or not player_o():
         print(i)
     if " " not in table[0] and " " not in table[1] and " " not in table[2] and not player_x():
         print("It's a tie.")
+        break
     if player_x():
         print("The winner is player 'X'.")
         break
